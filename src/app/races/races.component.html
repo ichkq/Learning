@@ -1,0 +1,6 @@
+<div *ngFor="let ville of villes">
+    <div class="alert mb-3" [ngClass]="{'alert-success': ville.nom === 'Lyon', 'alert-danger': ville.nom === 'London'}">
+        <h3>{{ville.nom}}</h3>
+        <input type="text" [(ngModel)]="ville.nom" />
+    </div>
+</div>
