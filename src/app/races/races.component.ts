@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Ville } from "../../assets/Ville";
+import { Ville } from "../Ville";
+import { VilleService } from '../services/ville.service';
 
 @Component({
   selector: 'app-races',
@@ -9,15 +10,15 @@ import { Ville } from "../../assets/Ville";
 
 export class RacesComponent implements OnInit {
 
-  villes: Ville[] = [];
+  constructor(public villeService: VilleService) { }
 
-  constructor() { }
+  onSwitch(index: number) {
+    const ville = this.villeService.villes[index];
+    ville.status = ville.status === 'allume' ? 'eteint' : 'allume';
+  }
 
   ngOnInit(): void {
-    this.villes = [
-      { nom: 'Lyon' },
-      { nom: 'London' }
-    ];
+
   }
 
 }
