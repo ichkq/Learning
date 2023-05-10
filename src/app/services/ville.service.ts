@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Ville } from '../Ville';
+import { Ville } from '../models/Ville';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class VilleService {
-  villes: Ville[] = [
+  villeSubject = new Subject<Ville[]>();
+  private villes: Ville[] = [
     { nom: 'Lyon', status: 'eteint' },
     { nom: 'London', status: 'eteint' },
     { nom: 'Paris', status: 'eteint' },
@@ -14,6 +16,10 @@ export class VilleService {
     { nom: 'Madrid', status: 'eteint' },
     { nom: 'Rome', status: 'eteint' },
   ];
+
+  emitVilleSubject() {
+    this.villeSubject.next(this.villes.slice());
+  }
 
   constructor() { }
 }

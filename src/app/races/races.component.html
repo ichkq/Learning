@@ -1,4 +1,4 @@
-<div *ngFor="let ville of villeService.villes | slice:0:4; let i=index">
+<div *ngFor="let ville of villes | slice:0:4; let i=index">
     <div class="alert mb-3"
         [ngClass]="{'alert-success': ville.status === 'allume', 'alert-danger': ville.status === 'eteint'}">
         <h3>{{ville.nom}}</h3>
