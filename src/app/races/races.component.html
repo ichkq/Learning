@@ -2,8 +2,12 @@
     <div class="alert mb-3"
         [ngClass]="{'alert-success': ville.status === 'allume', 'alert-danger': ville.status === 'eteint'}">
         <h3>{{ville.nom}}</h3>
-        <button class="btn btn-secondary" (click)="onSwitch(i)">{{ville.status === 'allume' ? 'Eteindre' :
-            'Allumer'}}</button>
-        <input type="text" [(ngModel)]="ville.nom" />
+        <div>
+            <button class="btn btn-secondary" (click)="onSwitch(i)">
+                {{ville.status === 'allume' ? 'Eteindre' : 'Allumer'}}
+            </button>
+            <input type="text" [(ngModel)]="ville.nom" />
+        </div>
+        <a [routerLink]="['/caracteristiques', { id: i }]">Détails</a>
     </div>
 </div>

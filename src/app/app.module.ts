@@ -6,17 +6,26 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { RacesComponent } from './races/races.component';
 import { FormsModule } from '@angular/forms';
+import { SingleraceComponent } from './singlerace/singlerace.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'caracteristiques', component: SingleraceComponent },
+  { path: 'races', component: RacesComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    RacesComponent
+    RacesComponent,
+    SingleraceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
