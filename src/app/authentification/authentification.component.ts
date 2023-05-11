@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../services/authentification.service';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'app-authentification',
+  templateUrl: './authentification.component.html',
+  styleUrls: ['./authentification.component.css']
 })
-export class MenuComponent implements OnInit {
+export class AuthentificationComponent implements OnInit {
 
   constructor(public authService: AuthentificationService) { }
 

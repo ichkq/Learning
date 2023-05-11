@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-        <a class="btn" routerLink="/races">Pony Racer</a>
+        <div>Pony Racer</div>
         <button class="btn btn-success" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -9,7 +9,10 @@
     </div>
 </nav>
 <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-light pb-2 pt-2 container-fluid">
-        <span class="text-secondary">Races</span>
+    <div class="bg-light container-fluid">
+        <ul class="nav navbar-nav pb-3">
+            <li><a class="link-secondary" routerLink="/authentification">Authentification</a></li>
+            <li><a *ngIf="this.authService.isAuth" class="link-secondary" routerLink="/races">Races</a></li>
+        </ul>
     </div>
 </div>

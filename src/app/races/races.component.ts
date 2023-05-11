@@ -10,7 +10,6 @@ import { Ville } from '../models/Ville';
 })
 
 export class RacesComponent implements OnInit {
-
   villes: Ville[];
 
   constructor(public villeService: VilleService) { }
