@@ -26,5 +26,4 @@ export class RacesComponent implements OnInit {
     );
     this.villeService.emitVilleSubject();
   }
-
 }
