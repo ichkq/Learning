@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Ville } from "../../assets/Ville";
+import { VilleService } from '../services/ville.service';
+import { Observable } from 'rxjs/Observable';
+import { Ville } from '../models/Ville';
 
 @Component({
   selector: 'app-races',
@@ -9,15 +11,20 @@ import { Ville } from "../../assets/Ville";
 
 export class RacesComponent implements OnInit {
 
-  villes: Ville[] = [];
+  villes: Ville[];
 
-  constructor() { }
+  constructor(public villeService: VilleService) { }
+
+  onSwitch(index: number) {
+    const ville = this.villes[index];
+    ville.status = ville.status === 'allume' ? 'eteint' : 'allume';
+  }
 
   ngOnInit(): void {
-    this.villes = [
-      { nom: 'Lyon' },
-      { nom: 'London' }
-    ];
+    this.villeService.villeSubject.subscribe(
+      (villes: Ville[]) => { this.villes = villes }
+    );
+    this.villeService.emitVilleSubject();
   }
 
 }
